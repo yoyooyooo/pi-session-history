@@ -6,7 +6,7 @@ Contributions are welcome through issues and pull requests.
 
 Requirements:
 
-- Node.js 20 or newer.
+- Node.js 22 or newer.
 - npm 10 or newer.
 - Pi 0.80.10 or newer for host-level smoke tests.
 

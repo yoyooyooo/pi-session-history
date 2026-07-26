@@ -28,7 +28,7 @@ Pi stores useful decisions, failed attempts, tool output, and implementation con
 ## Requirements
 
 - Pi `0.80.10` or a compatible later release. CI pins the host packages to `0.80.10`.
-- Node.js `20` or newer.
+- Node.js `22` or newer. Pi 0.80.10's packaged runtime dependencies do not load reliably on Node.js 20.
 
 ## Install
 
