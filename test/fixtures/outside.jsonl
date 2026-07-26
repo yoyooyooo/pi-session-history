@@ -1,0 +1,2 @@
+{"type":"session","version":3,"id":"outside-session","timestamp":"2026-01-04T10:00:00.000Z","cwd":"/workspace/outside"}
+{"type":"message","id":"o0000001","parentId":null,"timestamp":"2026-01-04T10:00:01.000Z","message":{"role":"user","content":"This file is outside the configured Pi sessions root.","timestamp":1767520801000}}

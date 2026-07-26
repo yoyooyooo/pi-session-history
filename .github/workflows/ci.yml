@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    name: Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22, 24]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check
+        run: npm run check
+      - name: Package dry run
+        run: npm pack --dry-run --json
+      - name: Install and load packed extension
+        run: |
+          package_file="$(npm pack --json | node -e 'let input=""; process.stdin.on("data", chunk => input += chunk); process.stdin.on("end", () => process.stdout.write(JSON.parse(input)[0].filename));')"
+          smoke_dir="$RUNNER_TEMP/pi-session-history-package-smoke"
+          mkdir -p "$smoke_dir"
+          printf '{"private":true}' > "$smoke_dir/package.json"
+          npm install --prefix "$smoke_dir" --omit=dev --ignore-scripts "$GITHUB_WORKSPACE/$package_file"
+          ./node_modules/.bin/pi --no-extensions -e "$smoke_dir/node_modules/pi-session-history" --list-models >/dev/null

@@ -1,0 +1,15 @@
+{
+  "defaultBranch": "main",
+  "remote": "origin",
+  "tagPrefix": "v",
+  "versionFiles": ["package.json"],
+  "lockfiles": ["package-lock.json"],
+  "lockfileCommand": ["npm", "install", "--package-lock-only"],
+  "checkCommand": ["npm", "run", "check"],
+  "commitMessage": "chore: release {tag}",
+  "publishMode": "npm",
+  "publishPackage": "pi-session-history",
+  "publishRegistry": "https://registry.npmjs.org",
+  "reuseFailedVersion": true,
+  "releaseBranchPrefix": "release/"
+}

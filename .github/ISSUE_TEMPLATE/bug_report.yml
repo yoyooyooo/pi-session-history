@@ -1,0 +1,53 @@
+name: Bug report
+description: Report incorrect session discovery, search, reading, or command behavior
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach private session transcripts. Use a minimal synthetic or redacted fixture.
+  - type: input
+    id: version
+    attributes:
+      label: pi-session-history version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: pi-version
+    attributes:
+      label: Pi version
+      placeholder: 0.80.10
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - pi_history list
+        - pi_history search
+        - pi_history read
+        - /history command
+        - Installation or loading
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide minimal steps and synthetic input where possible.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

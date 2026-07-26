@@ -1,0 +1,4 @@
+{"type":"session","version":3,"id":"session-a","timestamp":"2026-01-02T10:00:00.000Z","cwd":"/workspace/project-a"}
+{"type":"message","id":"a0000001","parentId":null,"timestamp":"2026-01-02T10:00:01.000Z","message":{"role":"user","content":"Plan the database migration for customer accounts.","timestamp":1767348001000}}
+{"type":"message","id":"a0000002","parentId":"a0000001","timestamp":"2026-01-02T10:00:02.000Z","message":{"role":"assistant","content":[{"type":"thinking","thinking":"We need a reversible rollout."},{"type":"text","text":"Use an expand-and-contract migration with a backfill checkpoint."}],"provider":"openai","model":"gpt-test","timestamp":1767348002000}}
+{"type":"session_info","id":"a0000003","parentId":"a0000002","timestamp":"2026-01-02T10:00:03.000Z","name":"Customer database migration"}
