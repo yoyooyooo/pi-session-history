@@ -63,7 +63,7 @@
     "prettier": "3.9.6",
     "tsx": "^4.20.6",
     "typebox": "1.1.38",
-    "typescript": "^5.9.0"
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "@earendil-works/pi-ai": "*",
